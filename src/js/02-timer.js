@@ -20,12 +20,10 @@ const fp = flatpickr("#datetime-picker",options = {
     if (selectedDates[0] <= Date.now()) {
         window.alert("Please choose a date in the future");
         
-        return;
-        
+        return;        
     }
     startBtn.addEventListener(`click`, () => {
-        timer.start();
-    
+        timer.start();    
     });
        
     },
