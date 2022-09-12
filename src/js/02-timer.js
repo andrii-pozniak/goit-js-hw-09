@@ -16,11 +16,8 @@ const fp = flatpickr("#datetime-picker",options = {
     minuteIncrement: 1,
    
     onClose(selectedDates) {
-     
-        const currentTime = selectedDates[0];
-        const starTime = Date.now();
-     
-    if (currentTime <= starTime) {
+           
+    if (selectedDates[0] <= Date.now()) {
         window.alert("Please choose a date in the future");
         
         return;
@@ -74,13 +71,11 @@ class Timer {
             return;
         }
         this.isActive = true;
-        setInterval(() => {
-            const onStart = Date.now();
-            const currentTime = fp.selectedDates[0];
-            const deltaTime = currentTime - onStart;
+        setInterval(() => {            
+            const deltaTime = fp.selectedDates[0] - Date.now();
             const { days, hours, minutes, seconds } = convertMs(deltaTime);
-            timerNumber.textContent = `${padStart(days)}`
 
+            timerNumber.textContent = `${padStart(days)}`
             minutesNumber.textContent = `${padStart(minutes)}`
             minutesNumber.textContent = `${padStart(minutes)}`
             hoursNumber.textContent = `${padStart(hours)}`
