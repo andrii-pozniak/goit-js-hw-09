@@ -1,5 +1,6 @@
 import flatpickr from "flatpickr";
 import "flatpickr/dist/flatpickr.min.css";
+import Notiflix from 'notiflix';
 
 const input = document.querySelector(`#datetime-picker`);
 const startBtn = document.querySelector(`button[data-start]`);
@@ -8,7 +9,8 @@ const hoursNumber = document.querySelector(`span[data-hours]`);
 const minutesNumber = document.querySelector(`span[data-minutes]`)
 const secondsNumber = document.querySelector(`span[data-seconds]`)
 
-const fp = flatpickr("#datetime-picker", options = {
+
+const options = {
     enableTime: true,
     time_24hr: true,
     defaultDate: new Date(),
@@ -17,7 +19,7 @@ const fp = flatpickr("#datetime-picker", options = {
     onClose(selectedDates) {
            
     if (selectedDates[0] <= Date.now()) {
-        window.alert("Please choose a date in the future");
+        Notiflix.Notify.failure("Please choose a date in the future");
         
         return;        
     }
@@ -27,11 +29,15 @@ const fp = flatpickr("#datetime-picker", options = {
        
     },
    
-  });   
- 
+  };   
+  const fp = flatpickr("#datetime-picker", options);
+
 input.addEventListener(`click`, () => {
 
 });
+
+
+    
 
 function convertMs(ms) {
     // Number of milliseconds per unit of time
