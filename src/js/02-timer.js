@@ -9,7 +9,6 @@ const hoursNumber = document.querySelector(`span[data-hours]`);
 const minutesNumber = document.querySelector(`span[data-minutes]`)
 const secondsNumber = document.querySelector(`span[data-seconds]`)
 
-
 const options = {
     enableTime: true,
     time_24hr: true,
