@@ -8,8 +8,7 @@ stopBtn.disabled = false;
 
 let timerid = null;
 
-startBtn.addEventListener (`click`, () => {
-  
+startBtn.addEventListener (`click`, () => {  
 
   timerid = setInterval(() => { 
     bodyStyle.style.backgroundColor = getRandomHexColor();
